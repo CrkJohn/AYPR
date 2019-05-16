@@ -80,8 +80,9 @@ class EliminarReserva( Frame):
     def eliminar(self):
         borrar1= int(self.ent.get())
         y = self.abrir()
-        ind = -1
-        for num,elementos in enumerate(y):
+        ind = - 1
+        print(y)
+        for num,elementos in enumerate(y[1:]):
             if int(elementos[0]) == borrar1:
                 ind = num
         if(ind != -1):
@@ -160,7 +161,7 @@ class pageReserva(Frame):
         print(sala,nombre,apellido,carnet)
         confir = "SI"
         if (sala == "C") or (sala == "c") and (mesasC > 0):
-                print ("Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet + "  en la sala: " + sala)
+                messagebox.showinfo("Informacion", "Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet + "  en la sala: " + sala)
                 mesasC = mesasC - 1
                 #confir= input("Todos los datos correctos: responda si o no   ")
                 if (confir == "si") or (confir == "SI"):
@@ -195,14 +196,14 @@ class pageReserva(Frame):
 
                         send_email(subject, msg)
                         
-                        print ("LA RESERVA FUE EXITOSA")
-                        print  ("SU NUMERO DE RESERVA ES: " + str(cont) )
+                        #print ("LA RESERVA FUE EXITOSA")
+                        messagebox.showinfo("LA RESERVA FUE EXITOSA","SU NUMERO DE RESERVA ES: " + str(cont) )
                         
                 else:
                         print ("Lo siento empieza el proceso de nuevo")
 
         elif (sala == "F") or (sala == "f") and (mesasF > 0):
-                print ("Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet+ "  en la sala: " + sala)
+                messagebox.showinfo("Informacion","Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet+ "  en la sala: " + sala)
                 mesasF = mesasF - 1
                 #confir= input("Todos los datos correctos: responda si o no   ")
                 if (confir == "si") or (confir == "SI"):
@@ -220,14 +221,13 @@ class pageReserva(Frame):
                         archivo.write ("\n")
 
                         archivo.close ()
-                        print ("LA RESERVA FUE EXITOSA")
-                        print  ("SU NUMERO DE RESERVA ES: " + str(cont) )
+                        messagebox.showinfo("LA RESERVA FUE EXITOSA","SU NUMERO DE RESERVA ES: " + str(cont) )
                 
                 else:
                         print ("Lo siento empieza el proceso de nuevo")
 
         elif (sala == "D") or (sala == "d") and (mesasD > 0):
-                print ("Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet+ "  en la sala: " + sala)
+                messagebox.showinfo("Informacion","Los datos de la reserva son: " + nombre + " " + apellido + "  con el carnet: " + carnet+ "  en la sala: " + sala)
                 mesasD = mesasD - 1
                 #confir= input("Todos los datos correctos: responda si o no   ")
                 if (confir == "si") or (confir == "SI"):
@@ -245,8 +245,8 @@ class pageReserva(Frame):
                         archivo.write ("\n")
 
                         archivo.close ()
-                        print ("LA RESERVA FUE EXITOSA")
-                        print  ("SU NUMERO DE RESERVA ES: " + str(cont))      
+                        
+                        messagebox.showinfo("LA RESERVA FUE EXITOSA","SU NUMERO DE RESERVA ES: " + str(cont))      
                 else:
                         print ("Lo siento empieza el proceso de nuevo")
         
